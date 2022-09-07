@@ -2,15 +2,15 @@ import React from 'react'
 import {useRef} from 'react'
 
 const UseRef2 = () => {
-   const ele=useRef([]);
-
-  new Array(10).fill(0).map((e,i)=>ele.current[i]=React.createRef(null));
+   const ele={}; // [] //useRef([] or {})
+  //  we can use Array or Object for storing multiple useref  
+  new Array(10).fill(0).map((e,i)=>ele[i]=React.createRef(null));
 //   we can cret euseref an stoe into array and we can use that  
    const info=()=>{
    
-      console.log(ele.current)
+  console.log(ele)
 
-    ele.current[3].current.focus();
+    ele[3].current.focus();
   
 
     }
@@ -19,7 +19,7 @@ const UseRef2 = () => {
     <>
    {
     new Array(10).fill(0).map((e,i)=>{
-    return  <input type={"text"} key="1"  value={i}  ref={ele.current[i]} />   
+    return  <input type={"text"} key="1"  value={i}  ref={ele[i]} />   
      
         })
  
